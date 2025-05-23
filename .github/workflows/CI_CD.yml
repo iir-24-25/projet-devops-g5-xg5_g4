@@ -46,14 +46,14 @@ jobs:
     needs: build-and-test-backend
     defaults:
       run:
-        working-directory: ./quiz
+        working-directory: ./quiz/project
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Show quiz folder contents (debug)
+      - name: Show project folder contents (debug)
         run: ls -la
 
       - name: Install frontend dependencies
@@ -74,7 +74,7 @@ jobs:
         run: docker build -t myapp-backend:latest ./quiz-backend
 
       - name: Build frontend Docker image
-        run: docker build -t myapp-frontend:latest ./quiz
+        run: docker build -t myapp-frontend:latest ./quiz/project
 
   deploy:
     name: Deploy to Production
