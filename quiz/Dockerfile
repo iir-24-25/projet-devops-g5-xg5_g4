@@ -1,7 +1,7 @@
 # Étape 1 : Build de l'application Vite (React)
 FROM node:18 as build
 WORKDIR /app
-COPY . .
+COPY ./project .
 RUN npm install
 RUN npm run build
 
