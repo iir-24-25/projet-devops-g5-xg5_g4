@@ -22,3 +22,10 @@ services:
       MYSQL_DATABASE: quizdb
     ports:
       - "3306:3306"
+
+  frontend:
+    image: myapp-frontend:latest
+    build:
+      context: ./quiz
+    ports:
+      - "80:80"
